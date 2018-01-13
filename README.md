@@ -16,17 +16,17 @@ A feladathoz tartozik egy letölthető segédlet, ahol találunk több minta bem
     A fordítás során keletkező .class állományokat és a JUnit futtatásához használatos két .jar fájlt sem szabad mellékelni!
 
 # A feladat részletes ismertetése
-# 1. Segédtípusok
+## 1. Segédtípusok
 
-## snake.exception.CollisionException
+### snake.exception.CollisionException
 
 Készítsük el a snake.exception.CollisionException ellenőrzött kivételosztályt (származzon az Exception osztályból). Ez a kivétel fogja jelezni, ha a kígyó nekiütközik valaminek.
 
-# snake.exception.InvalidIndexException
+### snake.exception.InvalidIndexException
 
 Készítsük el a snake.exception.InvalidIndexException nem ellenőrzött kivételosztályt (származzon a RuntimeException osztályból). Ez a kivétel fogja jelezni, ha a játéktér határain kívülre próbálnánk menni.
 
-# snake.util.Position
+### snake.util.Position
 
 Hozzuk létre a snake.util.Position osztályt, mely egy oszlop- és sorkoordinátáival azonosított pozíciót fog reprezentálni a játéktéren.
 
@@ -50,22 +50,22 @@ Metódusai:
 
     Megjegyzés: a feladat egy későbbi fázisában szükség lesz a Position osztály hashCode és equals metódusainak megírására is. Ha ezt megtesszük előre, akkor bárhol, ahol két Position objektumot kell összehasonlítani, tetszőlegesen használható az isSame helyett az előre megírt equals is.
 
-# snake.util.Direction
+### snake.util.Direction
 
 Készítsük el a snake.util.Direction felsorolási típust, melynek lehetséges értékei a következők legyenek: UP, DOWN, RIGHT és LEFT.
-# 2. Alapszerkezet
+## 2. Alapszerkezet
 
 Hozzuk létre a feladat alapszerkezetét adó típusokat!
 
-# snake.Game
+### snake.Game
 
 A program vezérlését a snake.Game osztály fogja végezni. Ezt egyelőre még csak hozzuk létre, később fogjuk metódusokkal kiegészíteni.
 
-# snake.Tile
+### snake.Tile
 
 Készítsük el a snake.Tile interfészt, mely a játéktér egy mezőjét fogja ábrázolni. Legyen egyetlen metódusa, a Position visszatérési értékű, paraméter nélküli getPosition, melynek implementációi a játékmező aktuális pozícióját fogják visszaadni.
 
-# snake.Snake
+### snake.Snake
 
 A kígyót a snake.Snake interfészen keresztül szeretnénk majd vezérelni. Ez az interfész származzon a Tile interfészből.
 
@@ -75,7 +75,7 @@ Metódusai:
 
     Legyen egy publikus, visszatérési érték nélküli, kétparaméteres move metódusa, mely dobhat CollisionException-t. Az első paramétere Direction típusú, a második egy egész szám (times). Ennek a metódusnak az implementációi majd az adott irányba fogják mozdítani a kígyót times mezőnyit, ha ez nem okoz ütközést.
 
-# snake.Apple
+### snake.Apple
 
 Készítsük el a Tile interfészt megvalósító snake.Apple osztályt, mely az almákat fogja ábrázolni.
 
