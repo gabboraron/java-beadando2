@@ -16,9 +16,9 @@ A feladathoz tartozik egy letölthető segédlet, ahol találunk több minta bem
     A fordítás során keletkező .class állományokat és a JUnit futtatásához használatos két .jar fájlt sem szabad mellékelni!
 
 # A feladat részletes ismertetése
-# 1. Segédtípusok
+# # 1. Segédtípusok
 
-# snake.exception.CollisionException
+# # # snake.exception.CollisionException
 
 Készítsük el a snake.exception.CollisionException ellenőrzött kivételosztályt (származzon az Exception osztályból). Ez a kivétel fogja jelezni, ha a kígyó nekiütközik valaminek.
 
