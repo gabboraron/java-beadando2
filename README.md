@@ -88,3 +88,57 @@ Metódusai:
     Legyen egy publikus konstruktora, melynek egyetlen Position típusú paramétere van. Tárolja le a paramétert az adattagba.
 
     Valósítsa meg a Tile interfészből örökölt getPosition metódust: térjen vissza az adattag értékével.
+
+## 3. A kígyó
+
+Készítsük el a kígyó részeit ábrázoló alábbi két típust. Ezek még csak a kígyó alapvető mozgatásáért felelnek, azzal, hogy a kígyó megegye az almákat, és azoktól megnőjön, később foglalkozunk majd.
+
+### snake.parts.SnakeTail
+
+Hozzuk létre a Tile interfészt megvalósító snake.parts.SnakeTail osztályt, mely a kígyó farkát fogja ábrázolni.
+
+Adattagjai:
+
+    position: Position típusú. A kígyó farkának aktuális pozícióját tárolja.
+
+Metódusai:
+
+    Legyen egy publikus konstruktora, melynek egyetlen Position típusú paramétere van. Tárolja le a paramétert az adattagba.
+
+    Valósítsa meg a Tile interfészből örökölt getPosition metódust: térjen vissza az adattag értékével.
+
+    Legyen egy védett, visszatérési érték nélküli, Position paraméterű moveTo metódusa. Mozgassa a kígyó farkát a megadott pozícióra, azaz módosítsa az adattagot a paraméter értékére.
+
+    Legyen egy védett, logikai visszatérési értékű, Position paraméterű isAt metódusa. Ellenőrizze, hogy a kígyó az adott pozíción van-e, azaz, hogy az aktuális pozíciója egyenlő-e a paraméterül kapottal.
+
+### snake.parts.SnakeHead
+
+Hozzuk létre a snake.parts.SnakeHead osztályt, mely a kígyó fejét ábrázolja. Valósítsa meg a Snake interfészt, hiszen a kígyónak a fejét akarjuk irányítani. Származzon a SnakeTail osztályból, hogy bizonyos örökölt metódusokat ne kelljen újradefiniálnunk.
+
+Adattagjai:
+
+    game: módosíthatatlan, Game típusú. A játék vezérléséért felelős objektumot fogja tárolni.
+
+    tail: SnakeTail típusú. A kígyó farkát tárolja.
+
+Metódusai:
+
+    Legyen egy publikus, SnakeHead(Position position, Position positionOfTail, Game game) konstruktora. Az első paraméter a fej pozíciója: adja át az ősosztály konstruktorának paraméterül. A game paramétert mentse le a megfelelő adattagba. Végül hozzon létre egy új SnakeTail objektumot, a positionOfTail értékével felparaméterezve, melyet tároljon el a tail adattagjában.
+
+    Valósítsa meg a Snake interfészből örökölt move(Direction dir, int times) metódust. Hívja meg times-szor az egyparaméteres move metódust. Ha a times értéke 0 vagy negatív, ne hívja meg egyszer se.
+
+    Valósítsa meg a Snake interfészből örökölt move(Direction dir) metódust. Ez a metódus ágazzon szét aszerint, hogy a dir paraméter értéke milyen. Minden esetben hívjuk meg az alábbiakban meghatározott, két egész paramétert váró move segédmetódust a következő paraméterezéssel:
+        UP esetén: row - 1, column
+        DOWN esetén: row + 1, column
+        RIGHT esetén: row, column + 1
+        LEFT esetén: row, column - 1
+
+    Egy privát, két egész paramétert váró move segédmetódusban hozzunk létre a kapott paraméterekkel egy új Position objektumot, majd végezzük el az alábbiakat.
+
+        Ha InvalidIndexException-t kapunk, dobjunk helyette CollisionException-t (a kígyó nekiment a pálya szélének).
+
+        Ellenőrizzük az isAt metódussal, hogy a kígyó farka a célul kitűzött pozíción van-e, ha igen, szintén dobjunk CollisionException-t (a kígyó nekiütközött saját magának).
+
+        Különben mozgassuk a kígyót az új pozícióra, a farkát (tail adattag) pedig arra a pozícióra, ahol eddig a feje volt.
+
+        Megjegyzés: Gondoljuk végig előre, hogy milyen paraméterekkel és milyen sorrendben érdemes a kígyó fejét és farkát mozgató metódusokat meghívni.
