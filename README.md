@@ -142,3 +142,62 @@ Metódusai:
         Különben mozgassuk a kígyót az új pozícióra, a farkát (tail adattag) pedig arra a pozícióra, ahol eddig a feje volt.
 
         Megjegyzés: Gondoljuk végig előre, hogy milyen paraméterekkel és milyen sorrendben érdemes a kígyó fejét és farkát mozgató metódusokat meghívni.
+
+## 4. Game osztály
+
+Egészítsük ki a Game osztályt.
+
+Adattagjai:
+
+    apples: módosíthatatlan, Apple objektumokat tartalmazó lista. A játékban elérhető almákat tartalmazza.
+    snake: módosíthatatlan, Snake típusú. A játékban a kígyót fogja tárolni.
+
+Metódusai:
+
+    Legyen egy osztályszintű, Apple típusú objektumok listájával visszatérő toApples(List<String> lines) metódusa. Ez a listában megkapott szövegeket almákká alakítja. Ha a kapott lista null, a metódus dobjon IllegalArgumentExceptiont. Különben dolgozza fel a lista elemeit a következőképp:
+
+        Mindegyik szöveg pontosan két darab, szóközzel elválasztott egész számot tartalmaz (pl. 5 2). Ezek az alma sor-, illetve oszlopindexe.
+
+        A metódus hozzon létre ezek segítségével egy megfelelő Position objektumot, majd azzal felparaméterezve egy új Apple objektumot, és tegye ezt az eredménylistába.
+
+        Ha valamelyik szöveg mégsem a megadott alakú (pl. több vagy kevesebb szóközzel elválasztott részből áll, nem számok a részei stb.), vagy bármelyik index nem megfelelő (a Position konstruktora kivételt dob), akkor azt a szöveget hagyjuk figyelmen kívül (ilyenkor ne tegyünk semmit az eredménylistába)!
+
+    Legyen egy publikus Game(List<String> apples) konstruktora. A paraméterül kapott listát alakítsa almák listájává a toApples metódusnál leírt konverziós szabályok szerint, majd mentse le a megfelelő adattagba. Ezenkívül hozzon létre egy SnakeHead objektumot, és a létrejött objektum konstruktorának adja át három paraméterként rendre:
+        a 0, 1 pozíciót (mindig innen indul majd a kígyó feje);
+        a 0, 0 pozíciót (mindig innen indul majd a kígyó farka);
+        az aktuális Game objektumot.
+
+    Legyen egy Apple visszatérési értékű, paraméter nélküli getApple metódusa. Ez mindig térjen vissza az apples adattagban tárolt lista első elemével, amennyiben a lista nem üres. Ha a lista üres, adjon vissza null-t.
+
+    Megjegyzés: a lista első eleme a nulladik indexű elem.
+
+    Legyen egy visszatérési érték nélküli, paraméter nélküli ateApple metódusa. Ennek meghívása jelenti azt, hogy a kígyó megette az aktuális almát (mely mindig az apples lista első eleme). A metódus törölje ki az apples lista első elemét. (A lista eggyel rövidebb lesz.)
+
+    Megjegyzés: a lista első eleme a nulladik indexű elem.
+
+    Legyen egy szöveggel visszatérő play(List<String> moves) metódusa, mely azért felel, hogy a paraméterül kapott mozgató utasításokat kiadja a kígyónak, és egy szöveges kimenetet állítson elő. A szöveges kimenetet majd a főprogram fogja egy fájlba írni.
+
+        A moves lista minden egyes sora két alakot vehet fel. Vagy egyetlen irányt jelző szóból áll (a Direction felsorolási típus egyik konstansa), vagy egy irányt jelző szóból és egy szóközzel elválasztott egész számból (ismétlésszám).
+
+        Pl.
+
+        UP
+
+        RIGHT 5
+
+        Ha valamelyik sor nem ilyen alakú, hagyjuk figyelmen kívül! A helyes sorokat dolgozzuk fel, és hívjuk meg a snake változóban tárolt kígyó megfelelő move metódusát értelemszerűen felparaméterezve.
+
+        Megjegyzés: a megfelelő szövegrészletek Direction típusú objektummá alakításához használhatjuk a Direction.valueOf metódust.
+
+        Megjegyzés: nem kell ellenőriznünk, hogy az ismétlésszám pozitív-e. Negatív vagy 0 ismétlésszám esetén egyszerűen nem fog elmozdulni a kígyó.
+
+        Ha CollisionException-t kapunk, a metódus fűzze hozzá a kimenethez a "GAME OVER" szöveget, és térjen vissza az eddig elkészített szöveggel.
+
+        Minden egyes helyes sor feldolgozása után írjuk ki a játéktábla aktuális állását (ha nem történt ütközés). Ehhez hozzuk létre a privát, visszatérési érték nélküli, StringBuilder paramétert váró printState segédmetódust. Ez a metódus a megkapott StringBuilder végére fogja fűzni a játéktábla aktuális állapotát (ez is része a play által visszaadott kimenetnek).
+
+        A printState metódus törzsének elkészítéséhez egy további típusra és néhány metódusra lesz szükség, melyeket a következő, 5. részben készítünk el.
+
+        Ha már az összes elvárt mozgatást (a lista összes tagját) feldolgozta a play metódus, és eddig nem történt ütközés, szintén térjen vissza az eddig elkészített szöveggel. (Ilyenkor ne fűzzük hozzá a "GAME OVER" szöveget.)
+
+<bold>
+FONTOS! A feladat logikai felépítése szerint az 5. és 6. rész következik, viszont az utolsó 7. rész JUnit tesztek elkészítése a már megírt toApples metódushoz. Javasoljuk rögtön a mostani 4. rész után a tesztek megírását. (Egy valós szoftverfejlesztési projektben sem szeparálódhat nagyon a kód megírása és tesztelése.) </bold>
