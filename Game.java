@@ -12,7 +12,7 @@ public class Game{
 	final List<Apple> apples;
 	final Snake snake;
 	
-	public List<Apple> toApples(List<String> lines)
+	public static List<Apple> toApples(List<String> lines)
 	throws IllegalArgumentException {
 		if( lines == null ){
 			throw new IllegalArgumentException();
