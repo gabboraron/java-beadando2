@@ -46,7 +46,7 @@ public class SnakeHead extends SnakeTail implements Snake{
 		}
 	}
 	
-	private move(int row, int column)
+	private void move(int row, int column)
 	throws CollisionException {
 		Position currentPos;
 		try{
