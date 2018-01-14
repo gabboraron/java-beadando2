@@ -29,19 +29,19 @@ public class SnakeHead extends SnakeTail implements Snake{
 	
 	public void move(Direction dir)
 	throws CollisionException {
-		if(dir == UP ){
+		if(dir == Direction.UP ){
 			move(getPosition().getRow()-1, getPosition().getColumn());
 		}
 		
-		if(dir == DOWN ){
+		if(dir == Direction.DOWN ){
 			move(getPosition().getRow()+1, getPosition().getColumn());
 		}
 		
-		if(dir == RIGHT ){
+		if(dir == Direction.RIGHT ){
 			move(getPosition().getRow(), getPosition().getColumn()+1);
 		}
 		
-		if(dir == LEFT ){
+		if(dir == Direction.LEFT ){
 			move(getPosition().getRow(), getPosition().getColumn()-1);
 		}
 	}
@@ -53,13 +53,13 @@ public class SnakeHead extends SnakeTail implements Snake{
 			currentPos = new Position(row, column);
 			
 			if(tail.isAt(currentPos)){
-				throw CollisionException();							//farok
+				throw new CollisionException();											//farok
 			}
 		} catch (InvalidIndexException e){
-			throw CollisionException();								//pálya széle
+			throw new CollisionException();												//pálya széle
 		}
 	
-		tail = getPosition();										//mozgassuk a kígyót
+		tail = new SnakeTail(getPosition());											//mozgassuk a kígyót
 		moveTo(currentPos);
 	}
 }
