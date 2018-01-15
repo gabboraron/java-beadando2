@@ -201,3 +201,16 @@ Metódusai:
 
 <strong>
 FONTOS! A feladat logikai felépítése szerint az 5. és 6. rész következik, viszont az utolsó 7. rész JUnit tesztek elkészítése a már megírt toApples metódushoz. Javasoljuk rögtön a mostani 4. rész után a tesztek megírását. (Egy valós szoftverfejlesztési projektben sem szeparálódhat nagyon a kód megírása és tesztelése.) </strong>
+
+## 7. Tesztelés
+
+Készítsük el a snake.tests.ToApplesTest teszt osztályt, melyben leteszteljük a Game osztály toApples metódusát JUnit 4 egységtesztekkel. Más metódus és osztály tesztelése nem szükséges a beadandó teljesítéséhez.
+
+A JUnit futtatásához szükséges két .jar állomány megtalálható a letölthető segédletben.
+
+A tesztelésnek alaposnak kell lennie, legalább 10 különböző teszteset implementálásával.
+
+A tesztek megalkotásakor gondoljunk az alábbi esetekre:
+
+    null paraméter,
+    üres lista,
