@@ -36,7 +36,7 @@ public class Game{
 	public Game(List<String> apples){
 		this.apples = toApples(apples);
 		Position snakeHeads = new Position(0,1);
-		Position snakeTails = new Position(0,1);
+		Position snakeTails = new Position(0,0);
 		snake = new SnakeHead(snakeHeads, snakeTails, this);
 	}
 	
