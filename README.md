@@ -269,6 +269,16 @@ Metódusai:
 
     Írja felül a Tile interfészben deklarált és a SnakeTail osztályban már implementált print metódust. Helyezzen a paraméterül kapott map-be egy '#' karaktert, illetve hívja meg a next objektum print metódusát is.
 
+### snake.parts.SnakeHead.move(int, int)
+
+Egészítsük ki a SnakeHead osztály két egész paramétert váró move metódusát, hogy ha a fej az aktuális almára ér, megegye.
+
+    Miután a metódusban létrehoztuk a következő lépésnek megfelelő pozíciót, valamint ellenőriztük, hogy ez egy érvényes pozíció-e, ahol a kígyó farka nincs ott (nem történt ütközés), vizsgáljuk meg, hogy az új pozíció, ahová lépünk, nem egyenlő-e az aktuális alma pozíciójával. Az almát a game adattag getApple metódusával kérhetjük le. (Figyeljünk, hogy az eredmény null is lehet, ha már nincs több alma! Ilyenkor értelemszerűen nem történt evés.)
+
+    Ha az alma nincs a következő pozíción, akkor mozgassuk a kígyó farkát az eddigi pozícióra, a fejét pedig a következőre, ahogy eddig.
+
+    Ha az alma épp a következő pozíción van, hozzunk létre egy új SnakeTailPart objektumot, az aktuális pozícióval és a kígyó eddigi farkával felparaméterezve (tail adattag), majd ezt mentsük a tail adattagba. Emellett hívjuk meg a gameadattag ateApple metódusát, hogy jelezzük az alma elfogyasztását, és mozgassuk a fejet a következő pozícióra. (Ilyenkor a kígyó farkát nem mozgatjuk, hiszen épp oda helyezzük az új testrészt, ahová amúgy azt húzná...)
+
 
 ## 7. Tesztelés
 
