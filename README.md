@@ -199,8 +199,7 @@ Metódusai:
 
         Ha már az összes elvárt mozgatást (a lista összes tagját) feldolgozta a play metódus, és eddig nem történt ütközés, szintén térjen vissza az eddig elkészített szöveggel. (Ilyenkor ne fűzzük hozzá a "GAME OVER" szöveget.)
 
-<strong>
-FONTOS! A feladat logikai felépítése szerint az 5. és 6. rész következik, viszont az utolsó 7. rész JUnit tesztek elkészítése a már megírt toApples metódushoz. Javasoljuk rögtön a mostani 4. rész után a tesztek megírását. (Egy valós szoftverfejlesztési projektben sem szeparálódhat nagyon a kód megírása és tesztelése.) </strong>
+<strong>FONTOS!</strong> A feladat logikai felépítése szerint az 5. és 6. rész következik, viszont az utolsó 7. rész JUnit tesztek elkészítése a már megírt toApples metódushoz. Javasoljuk rögtön a mostani 4. rész után a tesztek megírását. (Egy valós szoftverfejlesztési projektben sem szeparálódhat nagyon a kód megírása és tesztelése.)
 
 ## 7. Tesztelés
 
