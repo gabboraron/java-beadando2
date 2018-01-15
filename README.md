@@ -250,6 +250,26 @@ Megjegyzés: Különböző operációs rendszerek különböző sortörés karak
 
 Megjegyzés: ezen a ponton a feladat már futtatható a mellékelt Main osztály és az első mintabemenet segítségével. Az ugyanis nem tartalmazza egyetlen alma elfogyasztását sem.
 
+## 6. Almaevés és növekedés
+### snake.parts.SnakeTailPart
+
+Készítsük el a snake.parts.SnakeTailPart osztályt, mely származik a SnakeTail osztályból. Ez az osztály fog felelni azért, hogy a kígyó farka (teste) növelhető legyen, ahogy újabb és újabb almákat fogyaszt el. Az egyes példányok úgy fognak viselkedni, mintha SnakeTail objektumok lennének, leírják nem csak magukat, de a kígyó teljes (mögöttük lévő) farkát. Azaz minden metódusra úgy adnak megoldást, hogy a mögöttük lévő elemeket is megfelelően mozgatják vagy figyelembe veszik (rekurzív metódushívásokkal).
+
+Adattagjai:
+
+    next: módosíthatatlan, SnakeTail típusú. A következő részt tartalmazza a kígyó farkából. Feltehetjük, hogy sosem null.
+
+Metódusai:
+
+    Legyen egy publikus SnakeTailPart(Position position, SnakeTail next) metódusa, mely átadja az ősosztály konstruktorának a kapott pozíciót, a next paraméteret pedig elmenti a megfelelő adattagba. Ha a next értéke null, dobjon IllegalArgumentException-t.
+
+    Írja felül a SnakeTail osztályból örökölt, védett moveTo metódust. Először mozgassa a next adattagban lévő következő elemet az aktuális pozíciójára (a moveTo metódus rekurzív hívásával), majd hívja meg az ősben definiált változatát, hogy saját magát a paraméterül kapott pozícióra mozgathassa. (Így a kígyó farkának következő eleme oda kerül, ahol eddig ez az elem volt, míg ez az elem oda, ahová a metódus paramétere mutat.)
+
+    Írja felül a SnakeTail osztályból örökölt, védett isAt metódust. Ha az aktuális objektum pozíciója egyenlő a paraméterül kapott pozícióval, a metódus térjen vissza igazzal. Különben ellenőrizze, hogy a kígyó farkának hátralévő része nincs-e az adott pozíción a next objektum isAt metódusával.
+
+    Írja felül a Tile interfészben deklarált és a SnakeTail osztályban már implementált print metódust. Helyezzen a paraméterül kapott map-be egy '#' karaktert, illetve hívja meg a next objektum print metódusát is.
+
+
 ## 7. Tesztelés
 
 Készítsük el a snake.tests.ToApplesTest teszt osztályt, melyben leteszteljük a Game osztály toApples metódusát JUnit 4 egységtesztekkel. Más metódus és osztály tesztelése nem szükséges a beadandó teljesítéséhez.
