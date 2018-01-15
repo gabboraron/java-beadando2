@@ -42,4 +42,8 @@ public class Position{
 		return false;
 	}
 	
+	public boolean equals(Position that){
+		return isSame(that);
+	}
+	
 }
