@@ -9,7 +9,7 @@ public class Position{
 	
 	public Position(int rowIdx, int columnIdx){
 		boolean good = false;
-		if((rowIdx > 0) && (rowIdx > SIZE_OF_BOARD)){
+		if((rowIdx > 0) && (rowIdx < SIZE_OF_BOARD)){
 			good = true;
 		}
 	
