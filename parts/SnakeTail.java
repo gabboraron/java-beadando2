@@ -21,4 +21,8 @@ public class SnakeTail implements Tile{
 	protected boolean isAt(Position pos){
 		return this.position.isSame(pos);
 	}
+	
+	public void print(PositionMap<Character> map){
+		map.put(position, '~');
+	}
 }

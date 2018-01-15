@@ -62,4 +62,9 @@ public class SnakeHead extends SnakeTail implements Snake{
 		tail = new SnakeTail(getPosition());											//mozgassuk a kígyót
 		moveTo(currentPos);
 	}
+	
+	public void print(PositionMap<Character> map){
+		map.put(getPosition(), '@');
+		tail.print(map);
+	}
 }
