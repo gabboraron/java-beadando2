@@ -53,13 +53,20 @@ public class SnakeHead extends SnakeTail implements Snake{
 			currentPos = new Position(row, column);
 			
 			if(tail.isAt(currentPos)){
-				throw new CollisionException();											//farok
+				throw new CollisionException();												//farok
 			}
 		} catch (InvalidIndexException e){
-			throw new CollisionException();												//pálya széle
+			throw new CollisionException();													//pálya széle
 		}
 	
-		tail = new SnakeTail(getPosition());											//mozgassuk a kígyót
+		
+		if((currentPos.equals(game.getApple().getPosition())) && (game.getApple() != null)){
+			SnakeTailPart tailPart = new SnakeTailPart(currentPos, tail);
+			tail = tailPart;
+			game.ateApple();																//alma evés
+		} else {			
+			tail = new SnakeTail(getPosition());											//mozgassuk a kígyót
+		}
 		moveTo(currentPos);
 	}
 	
