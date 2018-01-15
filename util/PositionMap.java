@@ -6,7 +6,7 @@ public class PositionMap <T>{
 	private final Map<Position, T> map;
 	private final T defaultValue;
 	
-	PositionMap(T defaultValue){
+	public PositionMap(T defaultValue){
 		this.defaultValue = defaultValue;
 		map = new HashMap<Position, T>();
 	}
