@@ -11,4 +11,8 @@ public class Apple implements Tile{
 	public Position getPosition(){
 		return this.position;
 	}
+	
+	public void print(PositionMap<Character> map){
+		map.put(position, 'o');
+	}
 }
