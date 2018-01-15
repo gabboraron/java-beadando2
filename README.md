@@ -201,6 +201,55 @@ Metódusai:
 
 <strong>FONTOS!</strong> A feladat logikai felépítése szerint az 5. és 6. rész következik, viszont az utolsó 7. rész JUnit tesztek elkészítése a már megírt toApples metódushoz. Javasoljuk rögtön a mostani 4. rész után a tesztek megírását. (Egy valós szoftverfejlesztési projektben sem szeparálódhat nagyon a kód megírása és tesztelése.)
 
+## 5. Kiíratás
+### snake.util.Position
+
+Készítsük el a Position osztály hashCode és equals metódusát! Két Position objektum akkor egyenlő, ha sor- és oszlopindexük is megegyezik.
+### snake.util.PositionMap
+
+Hozzuk létre a snake.util.PositionMap osztályt, melynek egyetlen T típusparamétere van.
+
+Adattagjai:
+
+    map: módosíthatatlan, Position kulcsokhoz T típusú elemeket társító Map.
+    defaultValue: módosíthatatlan, T típusú.
+
+Metódusai:
+
+    Legyen egy publikus PositionMap(T defaultValue) konstruktora, mely letárolja a kapott paramétert a megfelelő adattagba. A map adattagot inicializáljuk egy üres HashMap-pel.
+
+    Legyen egy visszatérési érték nélküli put(Position pos, T element) metódusa. Ez a metódus helyezze el a map adattagban tárolt Map-ben a paraméterül kapott kulcs-érték párt.
+
+    Legyen egy T visszatérési értékű get(Position pos) metódusa. Ez a metódus kérje le a pos kulcshoz tartozó értéket a map-ből. Ha van ilyen, térjen vissza vele. Ha nincs, térjen vissza a defaultValue-val.
+
+### snake.Tile
+
+Egészítsük ki a Tile interfészt a visszatérési érték nélküli print(PositionMap<Character> map) metódussal, melynek implementációi azért felelnek majd, hogy a paraméterül kapott map-be elhelyezzenek egy, a megfelelő mezőt ábrázoló karaktert.
+
+Ezt a metódust a Tile interfészt megvalósító osztályainkban a következőképpen definiáljuk felül:
+
+    Apple: helyezzünk be a map-be az alma pozíciójára egy 'o' karaktert.
+    SnakeTail: helyezzünk be a map-be a kígyó farkának pozíciójára egy '~' karaktert.
+    SnakeHead: helyezzünk be a map-be a kígyó fejének pozíciójára egy '@' karaktert, valamint hívjuk meg a kígyó farkának (tail adattag) print metódusát is, a map-et átadva paraméterül.
+
+### snake.Game.printState
+
+Az előző részfeladatban létrehozott printState segédmetódust a Game osztályban a következőképpen definiálhatjuk:
+
+    Hozzon létre egy új PositionMap<Character> objektumot, egy szóköz karaktert adva neki paraméterül.
+
+    Hívja meg a snake adattagnak és az apples lista első elemének (amennyiben a lista nem üres) print metódusát a létrehozott PositionMap-pel felparaméterezve. Ezzel az aktuális alma és a kígyó kirajzolódik a térképre.
+
+    Két egymásba ágyazott ciklussal járja végig a pálya elérhető indexeit (a sor- és az oszlopindex legalább 0, és SIZE_OF_BOARD-nál kisebb), készítsen el mindegyiknek megfelelően egy Position objektumot, és kérje le az adott pozíción lévő karaktert a map-ből. A karaktert fűzze hozzá a paraméterül kapott StringBuilder-hez.
+
+    Soronként fűzzön hozzá egy sortörés karaktert.
+
+    Miután a ciklus véget ért, a StringBuilderhez még fűzze hozzá a metódus a "==========" karakterláncot (10 darab egyenlőségjel) és ezt követően egy sortörés karaktert, ezekkel jelezve az aktuális kirajzolás szélét.
+
+Megjegyzés: Különböző operációs rendszerek különböző sortörés karaktereket használnak (\n,\r,\r\n). A platform-semleges sortörések érdekében használjuk a System.lineSeparator() metódust.
+
+Megjegyzés: ezen a ponton a feladat már futtatható a mellékelt Main osztály és az első mintabemenet segítségével. Az ugyanis nem tartalmazza egyetlen alma elfogyasztását sem.
+
 ## 7. Tesztelés
 
 Készítsük el a snake.tests.ToApplesTest teszt osztályt, melyben leteszteljük a Game osztály toApples metódusát JUnit 4 egységtesztekkel. Más metódus és osztály tesztelése nem szükséges a beadandó teljesítéséhez.
