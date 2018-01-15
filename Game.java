@@ -79,7 +79,23 @@ public class Game{
 	}
 	
 	public void printState(StringBuilder myString){
+		PositionMap<Character> posMap = new PositionMap(' ');
+		snake.print(posMap);
 		
+		if(!apples.isEmpty()){
+			apples.get(0).print(posMap);
+		}
+
+		for(int i=0; i<Position.SIZE_OF_BOARD; ++i){
+			for(int j=0; j<Position.SIZE_OF_BOARD; ++j){
+				Position tmpPos = new Position(i,j);
+				Character charAtPos = posMap.get(tmpPos);
+				myString.append(charAtPos);
+			}
+			myString.append(System.lineSeparator());
+		}
+		myString.append("==========");
+		myString.append(System.lineSeparator());
 	}
 	
 }
