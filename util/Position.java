@@ -13,7 +13,7 @@ public class Position{
 			good = true;
 		}
 	
-		if(good && ((columnIdx > 0) && (columnIdx > SIZE_OF_BOARD))){
+		if(good && ((columnIdx > 0) && (columnIdx < SIZE_OF_BOARD))){
 			good = true;
 		}else{
 			good = false;
