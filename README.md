@@ -292,3 +292,15 @@ A tesztek megalkotásakor gondoljunk az alábbi esetekre:
 
     null paraméter,
     üres lista,
+    egy szöveg szóközzel kezdődik/végződik, vagy több szóközt tartalmaz,
+    a sor-/oszlopindex nem szám,
+    a sor-/oszlopindex negatív vagy 10-nél nem kisebb,
+    határesetek (pl. 0, 9, 10),
+    helyes bemenet: a ciklus egyszer/kétszer/többször lefut.
+
+## A kód futtatása
+
+A feladathoz tartozó letölthető segédletben található Main.java program, valamint mintabemenetek és mintakimenetek segítségével futtatható és ellenőrizhető a program. A szintén a zip-hez csatolt README.txt fájl tartalmaz részletes leírást mindezek használatáról.
+
+Figyelem: a helyes kimeneti fájl még nem feltétlenül jelenti azt, hogy a megoldás helyes.
+## Jó munkát!
