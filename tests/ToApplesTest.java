@@ -11,6 +11,7 @@ import java.util.*;
 //import snake.exception.*;
 import snake.Game;
 import snake.Apple;
+import snake.util.*;
 
 public class ToApplesTest {
 	
@@ -41,8 +42,13 @@ public class ToApplesTest {
 		myWronglist.add(" 9  10 ");
 		myWronglist.add("11 ");
 		List<Apple> testList = Game.toApples(myWronglist);
-		assertTrue(testList.isEmpty());
+		//System.out.println("****");
+		//System.out.println("LIST SIZE: " + testList.size());
+		//System.out.println("LIST ELEM: " + testList.get(0).getPosition().getRow() + "," + testList.get(0).getPosition().getColumn());
+		//System.out.println("****");
+		assertTrue(testList.size() == 1);
 	}
+	
 	@Test
 	public void notANumber()
 	throws Exception {
